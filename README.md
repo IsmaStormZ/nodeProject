@@ -1,7 +1,7 @@
 # NodeProject
 App node dockerizing
 
-# The aim
+## The aim
 The purpose of this project is to create a node's application to send email notifications 
 when a visitor has filled a form on our website.
 
