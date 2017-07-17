@@ -15,7 +15,8 @@ const sendmail = require('sendmail')({      // Send mail without SMTP server
     }});
 
 const app = express();
-const port = Number(process.env.PORT || 3000); // set the environment variable PORT to tell your web server what port to listen on, whatever is in the environment variable PORT, or 3000 if there's nothing there.
+const port = Number(process.env.PORT || 3000); // set the environment variable PORT to tell your web server what port to listen on,
+                                               // whatever is in the environment variable PORT, or 3000 if there's nothing there.
 
 //Parsed the text as JSON
 
@@ -53,7 +54,7 @@ app.post('/contact', (req, res) => {
     let mailOptions = {
         from: "cloudunit@treeptik.com",                         // sender address
         to: "Treeptik mail - <onifuerte@gmail.com>",            // list of receivers
-        subject: 'Cloudunit new test.',
+        subject: 'Cloudunit new test part 2.',
         html: "<b>" + "Name : " + req.body.setName + "<b>" + "<br>" + "Mail : " + req.body.setEmail   // name to form in index.html
     };
 
