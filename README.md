@@ -1,2 +1,0 @@
-# nodeProject
-app node dockerizing
