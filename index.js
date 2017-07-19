@@ -12,6 +12,7 @@ const bodyParser = require('body-parser');  // body-parser extracts entire body 
 
 const app = express();
 const port = Number(process.env.PORT || 3000); // set the environment variable PORT to tell your web server what port to listen on, whatever is in the environment variable PORT, or 3000 if there's nothing there.
+const userSender  = String(process.env.USER_SENDER);  //set the environenment variable to sender from
 const userMail = String(process.env.USER_MAIL); // set the environment variable to mailbox receiver
 const userPwd  = String(process.env.USER_PWD);  // set the environment variable Password of mailbox
 
@@ -62,7 +63,7 @@ app.post('/contact', (req, res) => {
     // setup email data
 
     let mailOptions = {
-        from: "cloudunit@treeptik.com",                         // sender address
+        from: userSender,                                       // sender address
         to: userMail,                                           // list of receivers
         subject: 'Completed form from Cloudunit.io v3',
         html: "<b>" + "Name : " + req.body.setName + "<b>" + "<br>" + "Mail : " + req.body.setEmail   // name to form in index.html
