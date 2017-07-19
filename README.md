@@ -18,7 +18,7 @@ docker images
 
 ### 3. Run image by associating a port with the tag -p, run the container in background task via the tag -d and define a mailbox to receive notification with the tag -e:
 ```
-docker run -p 32770:3000 -d -e "USER_MAIL=monmail" testing-cloudunit:latest
+docker run -p 32770:3000 -d -e USER_MAIL=myemail -e USER_PWD=mypwd testing-cloudunit:latest
 ```
 
 ### 4. Check container existing and a port associated:
@@ -28,7 +28,7 @@ docker ps
 
 ### 5. Rename the container with a name more speaking:
 ```
-docker rename <old container name> testing-cloudunit
+docker rename <old container name> mail
 ```
 
 ### 6. Check app running on the container: 
