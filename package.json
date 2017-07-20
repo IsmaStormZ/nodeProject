@@ -12,8 +12,11 @@
   "dependencies": {
     "body-parser": "1.17.2",
     "express": "4.15.3",
+    "jasmine": "2.6.0",
+    "jasmine-node": "1.14.5",
     "nodemailer": "4.0.1",
     "nodemon": "1.11.0",
+    "request": "2.81.0",
     "sendmail": "1.1.1"
   }
 }
