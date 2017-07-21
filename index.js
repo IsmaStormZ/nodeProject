@@ -1,7 +1,7 @@
 /*
  Date: 22th June
  Author: IsmaStormZ
- Version: v2
+ Version: v3
  */
 
 const http = require('http');               // To use the HTTP server and client one must require('http')
