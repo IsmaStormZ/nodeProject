@@ -16,21 +16,21 @@ const userSender  = String(process.env.USER_SENDER);  //set the environenment va
 const userMail = String(process.env.USER_MAIL); // set the environment variable to mailbox receiver
 const userPwd  = String(process.env.USER_PWD);  // set the environment variable Password of mailbox
 
-//Parsed the text as JSON
+    //Parsed the text as JSON
 
 app.use(bodyParser.json());
 
-// Parses the text as URL encoded data
+    // Parses the text as URL encoded data
 
 app.use(bodyParser.urlencoded({
     extended:true
 }));
 
-// express.static permit to use any static files(js, html, css) related to the static directory
+    // express.static permit to use any static files(js, html, css) related to the static directory
 
 app.use('/', express.static(__dirname));
 
-// Home page
+    // Home page
 
 app.get('/', (req,res) => {
     res.send('Hello from Docker\n');
@@ -38,7 +38,7 @@ app.get('/', (req,res) => {
     console.log('CloudUnit reading console log ...' + req.url);
 });
 
-// Create reusable transporter object using the default SMTP transport and sending mail function
+    // Create reusable transporter object using the default SMTP transport and sending mail function
 
 app.post('/contact', (req, res) => {
     console.log(JSON.stringify(req.body));
@@ -47,7 +47,7 @@ app.post('/contact', (req, res) => {
         return false;
     }
 
-    //sending Email with SMTP, Configuring SMTP setting
+    // sending Email with SMTP, Configuring SMTP setting
 
     let smtpTransport = nodemailer.createTransport({
         service: 'Gmail',
@@ -69,24 +69,24 @@ app.post('/contact', (req, res) => {
         html: "<b>" + "Name : " + req.body.setName + "<b>" + "<br>" + "Mail : " + req.body.setEmail   // name to form in index.html
     };
 
-// In case of error
+    // In case of error
 
     smtpTransport.sendMail(mailOptions,(error, info)=> {
         if (error){
             res.send("Email could not send due to error : " + error);
         }
         else {
-            res.send("Email has been sent successfuly : " + info);
+            res.send("Email has been sent successfully : " + info);
         }
         smtpTransport.close();              // close connection after the send
     });
 
-// redirect to cloudunit site to try
+    // redirect to cloudunit website to try
 
     res.redirect("https://cu01.cloudunit.io/#/login");
 });
 
-// Starting server
+    // Starting server
 
 const server = http.createServer(app).listen(port, () => {
     console.log("Server Running on 127.0.0.1 : " + port);
