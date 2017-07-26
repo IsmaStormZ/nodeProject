@@ -7,7 +7,7 @@ when a visitor has filled a form on our website.
 ### 1. Build image:
 On the directory folder:
 ```
-docker build -t testing-cloudunit .
+docker build -t nodeproject .
 ```
 
 ### 2. Check existing images:
@@ -34,7 +34,11 @@ docker ps
 ```
 docker logs <container id>
 ```
-Expected result:
+**Expected result:**
 ```
+[nodemon] 1.11.0
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching: *.*
+[nodemon] starting `node index.js`
 Server Running on 127.0.0.1 : 3000
 ```
