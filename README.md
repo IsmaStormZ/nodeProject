@@ -36,5 +36,9 @@ docker logs <container id>
 ```
 Expected result:
 ```
+[nodemon] 1.11.0
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching: *.*
+[nodemon] starting `node index.js`
 Server Running on 127.0.0.1 : 3000
 ```
