@@ -7,7 +7,7 @@ when a visitor has filled a form on our website.
 ### 1. Build image:
 On the directory folder:
 ```
-docker build -t testing-cloudunit .
+docker build -t nodeproject .
 ```
 
 ### 2. Check existing images:
