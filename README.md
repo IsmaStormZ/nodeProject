@@ -34,7 +34,7 @@ docker ps
 ```
 docker logs <container id>
 ```
-Expected result:
+**Expected result:**
 ```
 [nodemon] 1.11.0
 [nodemon] to restart at any time, enter `rs`
