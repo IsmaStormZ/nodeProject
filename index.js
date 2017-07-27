@@ -65,7 +65,7 @@ app.post('/contact', (req, res) => {
     let mailOptions = {
         from: userSender,                                       // sender address
         to: userMail,                                           // list of receivers
-        subject: 'Completed form from Cloudunit.io v3',
+        subject: 'Completed form demo from Cloudunit.io v3',
         html: "<b>" + "Name : " + req.body.setName + "<b>" + "<br>" + "Mail : " + req.body.setEmail   // name to form in index.html
     };
 
@@ -84,6 +84,52 @@ app.post('/contact', (req, res) => {
     // redirect to cloudunit website to try
 
     res.redirect("https://cu01.cloudunit.io/#/login");
+});
+
+app.post('/install', (req, res) => {
+    console.log(JSON.stringify(req.body));
+    if(req.body.setName == "" || req.body.setEmail == "") {         // check that the requested fields are filled in.
+        res.send("Error: Name & Email should not be blank");        // Message if issue in field
+        return false;
+    }
+
+    // sending Email with SMTP, Configuring SMTP setting
+
+    let smtpTransport = nodemailer.createTransport({
+        service: 'Gmail',
+        host: "smtp.gmail.com", 	// hostname
+        secureConnection: true,		// use SSL
+        port: 465,					// port for secure SMTP
+        auth: {                     // authentication to mailbox
+            user: userMail,
+            pass: userPwd
+        }
+    });
+
+    // setup email data
+
+    let mailOptions = {
+        from: userSender,                                       // sender address
+        to: userMail,                                           // list of receivers
+        subject: 'Completed form installation from Cloudunit.io v3',
+        html: "<b>" + "Name : " + req.body.setName + "<b>" + "<br>" + "Mail : " + req.body.setEmail   // name to form in index.html
+    };
+
+    // In case of error
+
+    smtpTransport.sendMail(mailOptions,(error, info)=> {
+        if (error){
+            res.send("Email could not send due to error : " + error);
+        }
+        else {
+            res.send("Email has been sent successfully : " + info);
+        }
+        smtpTransport.close();              // close connection after the send
+    });
+
+    // redirect to cloudunit website to try
+
+    res.redirect("https://github.com/Treeptik/CloudUnit");
 });
 
     // Starting server
