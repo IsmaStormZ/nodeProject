@@ -17,7 +17,7 @@ docker images
 
 ### 3. Run container:
 ```
-docker run --name mail -p 32770:3000 -d -e USER_MAIL=myemail -e USER_PWD=mypwd ismastormz/nodeproject
+docker run --name mail -p 3333:3000 -d -e USER_MAIL=myemail -e USER_PWD=mypwd ismastormz/nodeproject
 ```
 - `--name` tag to name the container with a name more speaking for example **mail**.
 - `-p` tag to assign a public port to internal port at container.
