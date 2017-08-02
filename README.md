@@ -1,23 +1,24 @@
 # NodeProject
 
 ## The aim
-The purpose of this project is to create a node's application to send email notifications
+The purpose of this project is to create a node's application to send email notifications 
 when a visitor has filled a form on our website.
 
-### 1. Build image:
-On the directory folder:
+# How to use
+
+### 1. Download image from dockerhub: 
 ```
-docker build -t nodeproject .
+docker pull ismastormz/nodeproject
 ```
 
-### 2. Check existing images:
+### 2. Check existing images: 
 ```
 docker images
 ```
 
 ### 3. Run container:
 ```
-docker run --name mail -p 3333:3000 -d -e USER_MAIL=myemail -e USER_PWD=mypwd ismastormz/nodeproject
+docker run --name mail -p 32770:3000 -d -e USER_MAIL=myemail -e USER_PWD=mypwd ismastormz/nodeproject
 ```
 - `--name` tag to name the container with a name more speaking for example **mail**.
 - `-p` tag to assign a public port to internal port at container.
@@ -30,11 +31,11 @@ docker run --name mail -p 3333:3000 -d -e USER_MAIL=myemail -e USER_PWD=mypwd is
 docker ps
 ```
 
-### 5. Check app running on the container:
+### 5. Check app running on the container: 
 ```
 docker logs <container id>
 ```
-**Expected result:**
+* **Expected result:**
 ```
 [nodemon] 1.11.0
 [nodemon] to restart at any time, enter `rs`
